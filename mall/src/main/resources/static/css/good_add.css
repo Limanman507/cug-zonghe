@@ -1,0 +1,38 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+
+html,body{
+    height:100%;
+    overflow: hidden;
+}
+
+.frm{
+    width: 600px;
+    margin: 30px auto;
+}
+
+.title{
+    height: 30px;
+    background-color: #337ab7;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.form{
+    pading:10px 0px;
+    border: 1px solid #adadad;
+}
+
+.table{
+    margin:0px auto;
+    background-color: #FFFFFF;
+}
+
+td{
+    padding:5px;
+    width: 100%;
+}

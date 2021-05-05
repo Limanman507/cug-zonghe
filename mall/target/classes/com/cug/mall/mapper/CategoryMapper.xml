@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cug.mall.mapper.CategoryMapper">
+    <select id="findAll"  resultType="com.cug.mall.entity.Category">
+        select categoryId,categoryName
+        from category
+    </select>
+
+    <insert id="doAdd" parameterType="com.cug.mall.entity.Category">
+        insert into category
+        (categoryName)
+        values
+        (#{categoryName})
+    </insert>
+
+    <select id="findById" parameterType="Integer" resultType="com.cug.mall.entity.Category">
+        select categoryId,categoryName
+        from category
+        where categoryId = #{categoryId}
+    </select>
+
+    <update id="doUpdate" parameterType="com.cug.mall.entity.Category" >
+        update category
+        set categoryName = #{categoryName}
+        where categoryId = #{categoryId}
+    </update>
+</mapper>
