@@ -1,0 +1,17 @@
+.main-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.mapView {
+  width: 100%;
+  flex: 1;
+}
+.juli {
+  padding: 32rpx 0 32rpx 32rpx;
+  font-size: 32rpx;
+}
+.btn {
+  width: 100%;
+}
