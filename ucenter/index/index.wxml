@@ -1,0 +1,56 @@
+<view class="container">
+  <view class='userbox' style='background: -webkit-linear-gradient(top, rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 1), rgba({{bgRed}},{{bgGreen}},{{bgBlue}}, 0.3))'>
+    <view wx:if="{{apiUserInfoMap && apiUserInfoMap.base.nick && apiUserInfoMap.base.avatarUrl}}" class="userinfo">
+      <wxc-avatar class="userinfo-avatar" src="{{ apiUserInfoMap.base.avatarUrl }}"> </wxc-avatar>
+      <view style='width:30rpx;'></view>
+      <view class='userinfo-text'>
+        <text class="userinfo-nickname">{{ apiUserInfoMap.base.nick }}</text>
+        <view style='height:10rpx;'></view>
+      </view>
+
+    </view>
+    <view wx:else class="userinfo">
+      <wxc-avatar class="userinfo-avatar-no" mold="square" src="{{ logo }}" bindtap="updateUserInfo"> </wxc-avatar>
+      <view class='userinfo-text'>
+        <text class="userinfo-nickname"> 欢迎您 ，⬆点我登陆⬆  </text>
+        <view style='height:10rpx;'></view>
+      </view>
+    </view>
+
+
+  </view>
+
+ 
+
+  <view class="user-menu">
+    <view class="item">
+      <navigator url="/pages/ucenter/order-list/index" hover-class="none" class="a">
+        <wxc-icon type='feedback' size='{{iconSize}}' color='{{iconColor}}' style='margin:15rpx 0 10rpx 0;'></wxc-icon>
+        <text class="txt">订单管理</text>
+      </navigator>
+    </view>
+    <view class="item">
+      <navigator url="/pages/select-address/index" hover-class="none" class="a">
+        <wxc-icon type='address' size='{{iconSize}}' color='{{iconColor}}' style='margin:15rpx 0 10rpx 0;'></wxc-icon>
+        <text class="txt">收货地址</text>
+      </navigator>
+    </view>
+
+
+
+  
+
+    
+    <view class="item item-bottom" bindtap="aboutUs">
+      <navigator url="url" hover-class="none" class="a">
+        <wxc-icon type='help' size='{{iconSize}}' color='{{iconColor}}' style='margin:15rpx 0 10rpx 0;'></wxc-icon>
+        <text class="txt">关于我们</text>
+      </navigator>
+    </view>
+
+  </view>
+</view>
+
+
+<import src="/templates/login/index.wxml" />
+<template is="apifmLogin" data="{{wxlogin: wxlogin}}" />
