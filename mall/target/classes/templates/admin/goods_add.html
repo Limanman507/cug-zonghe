@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>goods_add</title>
+    <link rel="stylesheet" type="text/css" href="/css/good_add.css">
+    <script type="text/javascript" src="/js/good_add.js"></script>
+</head>
+<div class="frm">
+    <div class="title">
+        商品信息添加
+    </div>
+    <form action="/admin/goods/addSubmit" method="post" enctype="multipart/form-data">
+        <table class="table">
+            <tr>
+                <td>商品名称</td>
+                <td>
+                    <input type="text" name="goodName" required="required"/>
+                </td>
+            </tr>
+            <tr>
+                <td>价格</td>
+                <td>
+                    <input type="text" name="price" required="required"/>
+                </td>
+            </tr>
+            <tr>
+                <td>商品产地</td>
+                <td>
+                    <input type="text" name="address" required="required"/>
+                </td>
+            </tr>
+            <tr>
+                <td>出产日期</td>
+                <td>
+                    <input type="date" name="produceDate" required="required"/>
+                </td>
+            </tr>
+            <tr>
+                <td>图片</td>
+                <td>
+                    <img src="/upfile/defaultImg.jpg" width="80" height="100" id="img">
+                    <br/>
+                    <input type="file" name="file" id="file" onchange="showImg()"/>
+                </td>
+            </tr>
+            <tr>
+                <td>商品分类</td>
+                <td>
+                    <select name="category.categoryId">
+                        <option value="">请选择</option>
+                        <option th:each="c:${categoryList}"
+                                th:value="${c.categoryId}"
+                                th:text="${c.categoryName}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="添加"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>category_add</title>
+    <link rel="stylesheet" type="text/css" href="/css/good_update.css">
+</head>
+<body>
+<div class="frm">
+    <div class="title">
+        商品分类修改
+    </div>
+    <form action="/admin/category/updateSubmit" method="post">
+        <input type="hidden" name="categoryId" th:value="${category.categoryId}">
+        <table class="table">
+            <tr>
+                <td>分类名称</td>
+                <td>
+                    <input type="text"
+                           name="categoryName"
+                           th:value="${category.categoryName}"
+                           required="required"/>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="修改"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

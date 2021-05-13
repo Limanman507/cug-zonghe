@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cug.mall.mapper.GoodMapper">
+
+    <resultMap id="goodMap" type="com.cug.mall.entity.Good" autoMapping="true">
+        <id column="goodId" property="goodId"/>
+        <association property="category" javaType="com.cug.mall.entity.Category" autoMapping="true">
+            <id column="categoryId" property="categoryId"/>
+        </association>
+    </resultMap>
+
+    <select id="findAll" resultMap="goodMap">
+        select g.goodId,g.goodName,g.price,
+               g.address,g.produceDate,g.picture,
+               c.categoryId,c.categoryName
+        from goods g
+            join category c
+                on g.categoryId = c.categoryId
+    </select>
+
+    <select id="findById" parameterType="Integer" resultType="com.cug.mall.entity.Good">
+        select g.goodId,g.goodName,g.price,
+               g.address,g.produceDate,g.picture,
+               c.categoryId,c.categoryName
+        from goods g
+                 join category c
+                      on g.categoryId = c.categoryId
+        where g.goodId = #{goodId}
+    </select>
+
+    <insert id="doAdd" parameterType="com.cug.mall.entity.Good">
+        insert into goods
+        (goodName,price,address,produceDate,picture,categoryId)
+        values
+        (#{goodName},#{price},#{address},#{produceDate},#{picture},#{category.categoryId})
+    </insert>
+
+
+    <update id="doUpdate" parameterType="com.cug.mall.entity.Good">
+        update goods
+        set goodName = #{goodName},
+            price = #{price},
+            address = #{address},
+            produceDate = #{produceDate},
+            picture = #{picture},
+            categoryId = #{category.categoryId}
+        where goodId = #{goodId}
+    </update>
+</mapper>

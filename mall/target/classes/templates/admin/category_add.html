@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>category_add</title>
+    <link rel="stylesheet" type="text/css" href="/css/category_add.css">
+</head>
+<body>
+<div class="frm">
+    <div class="title">
+        商品分类添加
+    </div>
+    <form action="/admin/category/addSubmit" method="post">
+        <table class="table">
+            <tr>
+                <td>分类名称</td>
+                <td>
+                    <input type="text" name="categoryName" required="required"/>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="添加"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

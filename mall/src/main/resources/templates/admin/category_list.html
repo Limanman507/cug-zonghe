@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>商品分类显示</title>
+    <link rel="stylesheet" type="text/css" href="/css/category_list.css">
+</head>
+<body>
+    <table class="table_list">
+        <tr class="title">
+            <th>分类编号</th>
+            <th>分类名称</th>
+            <th>操作</th>
+        </tr>
+
+        <th:block th:each="c:${categoryList}">
+            <tr>
+                <td th:text="${c.categoryId}"></td>
+                <td th:text="${c.categoryName}"></td>
+                <td>
+                    <a th:href="@{/admin/category/update(categoryId =${c.categoryId})}">修改</a>
+                </td>
+            </tr>
+        </th:block>
+    </table>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" src="/admin/good_update.css">
+</head>
+<div class="frm">
+    <div class="title">
+        商品信息修改
+    </div>
+    <form action="/admin/goods/updateSubmit" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="goodId" th:value="${good.goodId}"/>
+        <table class="table">
+            <tr>
+                <td>商品名称</td>
+                <td>
+                    <input type="text" name="goodName" required="required" th:value="${good.goodName}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>价格</td>
+                <td>
+                    <input type="text" name="price" required="required" th:value="${good.price}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>商品产地</td>
+                <td>
+                    <input type="text" name="address" required="required" th:value="${good.address}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>出产日期</td>
+                <td>
+                    <input type="date" name="produceDate" required="required"
+                    th:value="${#dates.format(good.produceDate,'yyyy-MM-dd')}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>图片</td>
+                <td>
+                    <img th:src="${good.picture}" width="80" height="100" id="img">
+                    <br/>
+                    <input type="file" name="file" id="file" onchange="showImg()"/>
+                    <input type="hidden" name="picture" th:value="${good.picture}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>商品分类</td>
+                <td>
+                    <select name="category.categoryId">
+                        <option value="">请选择</option>
+                        <option th:each="c:${categoryList}"
+                                th:value="${c.categoryId}"
+                                th:text="${c.categoryName}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="修改"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>goods_list</title>
+    <link rel="stylesheet" type="text/css" href="/css/good_list.css">
+</head>
+<body>
+<table class="table_list">
+    <tr class="title">
+        <th>商品编号</th>
+        <th>图片</th>
+        <th>商品名称</th>
+        <th>价格</th>
+        <th>产地</th>
+        <th>生产日期</th>
+        <th>类别</th>
+        <th>操作</th>
+    </tr>
+
+    <th:block th:each="g:${goodList}">
+        <tr>
+            <td th:text="${g.goodId}"></td>
+            <td>
+                <img th:src="${g.picture}" width="50" height="80"/>
+            </td>
+            <td th:text="${g.goodName}"></td>
+            <td th:text="${g.price}"></td>
+            <td th:text="${g.address}"></td>
+            <td th:text="${#dates.format(g.produceDate,'yyyy-MM-dd')}"></td>
+            <td th:text="${g.category.categoryName}"></td>
+            <td>
+                <a th:href="@{/admin/goods/update(goodId=${g.goodId})}">修改</a>
+            </td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>
