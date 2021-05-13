@@ -1,42 +1,72 @@
 {
   "pages": [
+    "pages/classification/index",
     "pages/ucenter/index/index",
-    "pages/category/index",
-    "pages/cart/cart",
-    "pages/logs/logs"
+    "pages/goods-details/index",
+    "pages/shop-cart/index",
+    "pages/to-pay-order/index",
+    "pages/select-address/index",
+    "pages/address-add/index",
+    "pages/ucenter/order-list/index",
+    "pages/order-details/index",
+    "pages/order-details/scan-result",
+    "pages/ucenter/location/location"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": true
+    "navigationBarTitleText": "农test",
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#00afb4",
+    "backgroundColor": "#00afb4"
   },
   "tabBar": {
-    "color": "#6e6d6b",
-    "selectedColor": "#0cc42d",
-    "borderStyle": "white",
+    "color": "#929292",
+    "selectedColor": "#00afb4",
+    "borderStyle": "black",
     "backgroundColor": "#fff",
     "list": [
       {
-          "pagePath": "pages/category/index",
-          "iconPath": "images/nav/icon-cate-off.png",
-          "selectedIconPath": "images/nav/icon-cate-on.png",
-          "text": "分类"
+        "pagePath": "pages/classification/index",
+        "iconPath": "images/nav/classification-off.png",
+        "selectedIconPath": "images/nav/classification-on.png",
+        "text": "分类"
+      },
+      
+      {
+        "pagePath": "pages/shop-cart/index",
+        "iconPath": "images/nav/cart-off.png",
+        "selectedIconPath": "images/nav/cart-on.png",
+        "text": "购物车"
       },
       {
-          "pagePath": "pages/cart/cart",
-          "iconPath": "images/nav/icon-cart-b.png",
-          "selectedIconPath": "images/nav/icon-cart-r.png",
-          "text": "购物车"
-      },
-      {
-          "pagePath": "pages/ucenter/index/index",
-          "iconPath": "images/nav/icon-center-b.png",
-          "selectedIconPath": "images/nav/icon-center-r.png",
-          "text": "我的"
+        "pagePath": "pages/ucenter/index/index",
+        "iconPath": "images/nav/my-off.png",
+        "selectedIconPath": "images/nav/my-on.png",
+        "text": "我的"
       }
-  ]
-},
+    ]
+  },
+  "networkTimeout": {
+    "request": 5000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取离你最近的门店"
+    }
+  },
+  "usingComponents": {
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "van-search": "@vant/weapp/search/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-count-down": "@vant/weapp/count-down/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-tag": "@vant/weapp/tag/index"
+  },
   "sitemapLocation": "sitemap.json"
 }
